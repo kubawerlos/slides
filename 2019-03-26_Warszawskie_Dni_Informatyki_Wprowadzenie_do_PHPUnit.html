@@ -1,0 +1,716 @@
+<!doctype html>
+<html lang='pl'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+
+        <title>Wprowadzenie do PHPUnit</title>
+
+        <link rel='stylesheet' href='css/reveal.css'>
+        <link rel='stylesheet' href='css/theme/black.css'>
+        <link rel='stylesheet' href='lib/css/zenburn.css'>
+        <link rel='stylesheet' href='css/custom.css'>
+    </head>
+
+    <body>
+        <div class='reveal'>
+            <div class='slides'>
+                <section class='center'>
+                    <p>Kuba Werłos</p>
+                    <br />
+                    <h2>Wprowadzenie do</h2>
+                    <h1>PHPUnit</h1>
+                    <br />
+                    <div style='display: inline-block; height: 80px; width: 16%;'>
+                        <img src='img/matic.png' style='display: block; width: 80%;' alt='Matic Services'>
+                    </div>
+                    <div style='display: inline-block; height: 80px; width: 16%;'>
+                        <img src='img/hubranch-light.svg' style='display: block; padding-top: 10px;' alt='Hubranch'>
+                    </div>
+                </section>
+                <section>
+                    <h3>Po co piszemy testy automatyczne?</h3>
+                    <br />
+                    <ul>
+                        <li class='fragment'>Ułatwiają utrzymywanie kodu.</li>
+                        <li class='fragment'>Ułatwiają tworzenie nowych funkcjonalności.</li>
+                        <li class='fragment'>Jesteśmy pewni czy nasz kod działa tak jak tego oczekujemy.</li>
+                        <li class='fragment'>Stworzone przed implementacją pozwalają na szybsze uzyskanie poprawnej implementacji.</li>
+                        <li class='fragment'>Pozwalają na bezpieczne optymalizowanie i refaktoryzację kodu.</li>
+                        <li class='fragment'>Ułatwiają wdrożenie nowej osoby do zespołu.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Given–When–Then</h3>
+                    <p class='fragment'>to styl pisania przypadków testowych.</p>
+                    <ul>
+                        <li class='fragment'><strong>Given</strong>: aplikacja jest w danym kontekście.</li>
+                        <li class='fragment'>When: gdy następuje akcja testowa.</li>
+                        <li class='fragment'>Then: wtedy powinny wystąpić pewne obserwowalne rezultaty.</li>
+                    </ul>
+
+                    <div class='fragment'>
+                        <p>Przykład:</p>
+                        <ul class='none'>
+                            <li><i>Given there are 20 cucumbers</i></li>
+                            <li><i>When I eat 5 cucumbers</i></li>
+                            <li><i>Then I should have 15 cucumbers</i></li>
+                        </ul>
+                    </div>
+                </section>
+                <section>
+                    <h3>PHPUnit</h3>
+                    <p class='fragment'>to narzędzie do pisania testów <i><s>jednostkowych</s></i> automatycznych.</p>
+                    <br />
+                    <p class='fragment'>Autorem jest Sebastian Bergmann i kontrybutorzy.</p>
+                    <br />
+                    <p class='fragment'>Pierwsza wersja została wydana w 2004 roku.</p>
+                    <br />
+                    <p class='fragment'>Według <a href='https://packagist.org/packages/phpunit/phpunit'>packagist.org</a> został zainstalowany 117 milionów razy.</p>
+                </section>
+                <section>
+                    <h3>Instalacja</h3>
+                    <div class='fragment'>
+                        <p>Jako zależność projektu:</p>
+                        <pre style='width: 60%;'><code data-trim data-noescape class='bash'>
+                            composer require --dev phpunit/phpunit
+                            ./vendor/bin/phpunit --version
+                        </code></pre>
+                    </div>
+                    <p class='fragment'><i>(lokalnie lub globalnie)</i></p>
+                    <br />
+                    <div class='fragment'>
+                        <p>Ściągając plik <a href='https://secure.php.net/phar'>PHAR</a>:</p>
+                        <pre style='width: 60%;'><code data-trim data-noescape class='bash'>
+                            wget https://phar.phpunit.de/phpunit-8.0.phar
+                            php phpunit-8.0.phar --version
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Wersje</h3>
+                    <br />
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>PHPUnit</th>
+                                <th>PHP</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>^4.0</td>
+                                <td>5.3+</td>
+                            </tr>
+                            <tr>
+                                <td>^5.0</td>
+                                <td>5.6+</td>
+                            </tr>
+                            <tr>
+                                <td>^6.0</td>
+                                <td>7.0+</td>
+                            </tr>
+                            <tr>
+                                <td>^7.0</td>
+                                <td>7.1+</td>
+                            </tr>
+                            <tr>
+                                <td>^8.0</td>
+                                <td>7.2+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h3>Statystyki</h3>
+                    <img src='img/phpunit_repo_stats.png' alt='PHPUnit repo stats'>
+                </section>
+                <section>
+                    <h3>Konfiguracja</h3>
+                    <code>phpunit.xml[.dist]</code>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='xml'>
+                        &lt;?xml version='1.0' encoding='UTF-8'?&gt;
+                        &lt;phpunit xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
+                                 xsi:noNamespaceSchemaLocation='vendor/phpunit/phpunit/phpunit.xsd'
+                                 verbose='true'
+                        &gt;
+
+                            &lt;testsuites&gt;
+                                &lt;testsuite name='all'&gt;
+                                    &lt;directory&gt;tests&lt;/directory&gt;
+                                &lt;/testsuite&gt;
+                            &lt;/testsuites&gt;
+
+                        &lt;/phpunit&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Konfiguracja</h3>
+                    <br />
+                    <pre style='width: 70%;'><code style='max-height: 500px;' data-trim data-noescape class='xml'>
+                        &lt;?xml version='1.0' encoding='UTF-8'?&gt;
+                        &lt;phpunit backupGlobals='false'
+                                 bootstrap='./vendor/autoload.php'
+                                 cacheResult='true'
+                                 cacheResultFile='.phpunit.result.cache'
+                                 columns='80'
+                                 enforceTimeLimit='false'
+                                 executionOrder='default'
+                                 forceCoversAnnotation='false'
+                                 processIsolation='false'
+                                 stopOnFailure='false'
+                        &gt;
+                        &lt;/phpunit&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Korzystanie</h3>
+                    <ul>
+                        <li class='fragment'>Uruchomienie z podaniem pliku konfiguracyjnego:
+                            <pre><code data-trim data-noescape class='bash'>
+                                phpunit -c tests/configuration-for-ci-server.xml
+                            </code></pre>
+                        </li>
+                        <li class='fragment'>Tylko jeden zestawu testów:
+                            <pre><code data-trim data-noescape class='bash'>
+                                phpunit --testsuite Unit
+                            </code></pre>
+                        </li>
+                        <li class='fragment'>Testy z danej ścieżki:
+                            <pre><code data-trim data-noescape class='bash'>
+                                phpunit tests/MyModule/MyFeatureTest.php
+                            </code></pre>
+                        </li>
+                        <li class='fragment'>Pojedynczy test:
+                            <pre><code data-trim data-noescape class='bash'>
+                                phpunit tests/MyFeatureTest.php --filter testSomething
+                            </code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Budowa testu</h3>
+                    <p class='fragment'>Nazwa musi zaczynać się od „test” lub posiadać adnotację „@test”.</p>
+                    <br />
+                    <div class='fragment'>
+                        <pre style='width: 60%;'><code data-trim data-noescape class='php'>
+                            final class MyService
+                            {
+                                public function getName() { /* ... */ }
+                                public function getCalculation() { /* ... */ }
+                            }
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Budowa testu</h3>
+                    <pre style='width: 60%;'><code data-trim data-noescape class='php'>
+                        final class MyServiceTest extends TestCase
+                        {
+                            public function testGetName() { /* ... */ }
+                            public function testGetCalculation() { /* ... */ }
+                        }
+                    </code></pre>
+                    <pre style='width: 60%;'><code data-trim data-noescape class='php'>
+                        final class MyServiceTest extends TestCase
+                        {
+                            /**
+                             * @test
+                             */
+                            public function getName() { /* ... */ }
+
+                            /**
+                             * @test
+                             */
+                            public function getCalculation() { /* ... */ }
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Budowa testu</h3>
+                    <br />
+                    <ul>
+                        <li>Klasa z testami musi dziedziczyć po PHPUnit\Framework\TestCase.</li>
+                        <li class='fragment'>Funkcja testu musi być publiczna.</li>
+                        <li class='fragment'>Przydatne metody klasy PHPUnit\Framework\TestCase:<br />
+                            <ul class='none'>
+                                <li><strong>setUpBeforeClass</strong> – przed pierwszym testem w klasie,</li>
+                                <li><strong>setUp</strong> – przed każdym testem w klasie,</li>
+                                <li><strong>tearDown</strong> – po każdym testem w klasie,</li>
+                                <li><strong>tearDownAfterClass</strong> – po ostatnim teście w klasie.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Data providers</h3>
+                    <br />
+                    <pre style='width: 80%;'><code data-trim data-noescape class='php'>
+                        final class MyConverterTest extends TestCase
+                        {
+                            public function testEmptyInput() { /* ... */ }
+
+                            public function testNumberInput() { /* ... */ }
+
+                            public function testSingleCharacterInput() { /* ... */ }
+
+                            public function testLongStringInput() { /* ... */ }
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Data providers</h3>
+                    <pre style='width: 80%;'><code data-trim data-noescape class='php'>
+                        final class MyConverterTest extends TestCase
+                        {
+                            /**
+                             * @dataProvider provideConversionCases
+                             */
+                            public function testConversion($expected, $input) { /* ... */ }
+
+                            public function provideConversionCases()
+                            {
+                                return [
+                                    'empty input' => [ /* ... */ ],
+                                    'number input' => [ /* ... */ ],
+                                    'single character input' => [ /* ... */ ],
+                                    'long string input' => [ /* ... */ ],
+                                ];
+                            }
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Asercje</h3>
+                    <br />
+                    <p>PHPUnit posiada ponad 100 asercji, między innymi:</p>
+                    <ul>
+                        <li>assertTrue</li>
+                        <li>assertFalse</li>
+                        <li>assertSame</li>
+                        <li>assertGreaterThanOrEqual</li>
+                        <li>assertContainsOnlyInstancesOf</li>
+                        <li>assertJsonStringEqualsJsonFile</li>
+                        <li>...</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Asercje</h3>
+                    <br />
+                    <pre><code data-trim data-noescape class='php'>
+                        final class MyServiceTest extends TestCase
+                        {
+                            public function testSomething()
+                            {
+                                /* ... */
+
+                                $this->assertTrue($value);
+                                static::assertTrue($value);
+                                Assert::assertTrue($value);
+                                assertTrue($value);
+                            }
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Asercje</h3>
+                    <pre><code data-trim data-noescape class='php'>
+                        final class MyServiceTest extends TestCase
+                        {
+                            public function testSomething1()
+                            {
+                                /* ... */
+
+                                $this->assertSame($expected, $actual, 'Values are different');
+                            }
+
+                            public function testSomething2()
+                            {
+                                /* ... */
+
+                                $this->assertJsonStringEqualsJsonFile($expected, $actual);
+                            }
+                        }
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Testowanie wyjątków</h3>
+                    <div class='fragment'>
+                        <pre><code data-trim data-noescape class='php'>
+                            final class MyServiceTest extends TestCase
+                            {
+                                public function testInvalidType()
+                                {
+                                    $service = new MyService();
+
+                                    $this->expectException(CustomException::class);
+                                    $this->expectExceptionCode(418);
+                                    $this->expectExceptionMessage('Not allowed type');
+
+                                    $service->convert(-10);
+                                }
+                            }
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Makiety</h3>
+                    <p>(ang. <i>test doubles</i>)</p>
+                    <br />
+                    <p class='fragment'>Używamy ich zamiast prawdziwego obiektu podczas testów.</p>
+                    <br />
+                    <p class='fragment'>Wyróżniamy 5 typów.</p>
+                </section>
+                <section>
+                    <h3>Dummy</h3>
+                    <br />
+                    <p>Ma zastosowanie gdy od obiektu nie oczekujemy niczego.<br />Zazwyczaj jest używany do uzupełnienia list argumentów.</p>
+                    <br />
+                    <pre class='fragment' style='width: 60%;'><code data-trim data-noescape class='php'>
+                        $this->createMock(LoggerInterface::class);
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Stub</h3>
+                    <br />
+                    <p>Używany jest wtedy gdy potrzebujemy konkretnych wartości dla testu.</p>
+                    <br />
+                    <pre class='fragment' style='width: 60%;'><code data-trim data-noescape class='php'>
+                        $animal = $this->createMock(Animal::class);
+                        $animal
+                            ->method('numberOfLegs')
+                            ->willReturn(100);
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Fake</h3>
+                    <p>Posiada działającą implementację, zwykle uproszczoną w celu uniknięcia efektów ubocznych (np. InMemoryTestDatabase).</p>
+                    <pre class='fragment' style='width: 80%;'><code data-trim data-noescape class='php'>
+                        $fruit = $this->createMock(FruitInterface::class);
+                        $fruit->method('getColour')
+                            ->willReturnCallback(function ($fruit) {
+                                $colours = ['apple' => 'red', 'banana' => 'yellow'];
+                                if (isset($colours[$fruit])) {
+                                    return $colours[$fruit];
+                                }
+                                return 'unknown';
+                            });
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Spy</h3>
+                    <p>Używany gdy potrzebujemy zebrać informacje co się dzieje<br />z makietą podczas testu.</p>
+                    <pre class='fragment' style='width: 80%;'><code data-trim data-noescape class='php'>
+                        $sentMessages = [];
+
+                        $logger = $this->createMock(MessageSender::class);
+                        $logger->method('send')
+                            ->willReturnCallback(function ($message) use (&$sentMessages) {
+                                $sentMessages[] = $message;
+                            });
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Mock</h3>
+                    <p>Oprócz tego co robią poprzednie makiety dodatkowo określa oczekiwania przed wykonaniem testu.</p>
+                    <br />
+                    <pre class='fragment' style='width: 60%;'><code data-trim data-noescape class='php'>
+                        $animal = $this->createMock(Animal::class);
+                        $animal
+                            ->expects($this->once())
+                            ->method('feed')
+                            ->with('Meat');
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Makiety</h3>
+                    <br />
+                    <p class='fragment'>Makieta zwracająca makietę najprawdopodobniej wskazuje,<br />że zależności nie są prawidłowo zdefiniowane<br />(<a href='https://pl.wikipedia.org/wiki/Prawo_Demeter'>Prawo Demeter</a>).</p>
+                    <br />
+                    <p class='fragment'>Słowo „mock” w kontekście PHPUnit oznacza makietę<br />i tylko od nas zależy jak jej użyjemy.</p>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div class='fragment'>
+                        <p>Poprawne rezultaty</p>
+                        <pre style='width: 70%;'><code data-trim data-noescape class='php'>
+                            $validator = new Validator();
+
+                            assertTrue($validator->isValid('fineValue'));
+                            assertFalse($validator->isValid('invalidValue'));
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div>
+                        <p>Niezmienniki – struktura</p>
+                        <pre style='width: 80%;'><code data-trim data-noescape class='php'>
+                            $shoppingCart = new ShoppingCart();
+
+                            $shoppingCart->addProduct(new Product('book'), 1);
+                            $shoppingCart->addProduct(new Product('game'), 1);
+
+                            $productsList = $shoppingCart->getProductsList();
+                            assertEquals(new Product('book'), productsList->getAtPosition(1));
+                            assertEquals(new Product('game'), $productsList->getAtPosition(2));
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div>
+                        <p>Niezmienniki – logika</p>
+                        <pre style='width: 80%;'><code data-trim data-noescape class='php'>
+                            $shoppingCart = new ShoppingCart();
+
+                            $shoppingCart->addProduct(new Product('book'), 2);
+                            $shoppingCart->addProduct(new Product('book'), 4);
+
+                            assertSame(6, $shoppingCart->getProductQuantity(new Product('book'));
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div>
+                        <p>Warunki brzegowe</p>
+                        <pre style='width: 70%;'><code data-trim data-noescape class='php'>
+                            assertFalse(DateService::isWorkingDay(false));
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div>
+                        <p>Warunki brzegowe – zgodność z oczekiwanym formatem</p>
+                        <pre style='width: 70%;'><code data-trim data-noescape class='php'>
+                            $nameForEmailExtractor = new NameForEmailExtractor();
+
+                            expectException(InvalidEmailException::class);
+
+                            $nameForEmailExtractor->extract('jan.kowalski!example.com');
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Co testujemy?</h3>
+                    <br />
+                    <div>
+                        <p>Warunki brzegowe – czy wartość należy do określonego przedziału</p>
+                        <pre style='width: 70%;'><code data-trim data-noescape class='php'>
+                            expectException(InvalidLatitudeException::class);
+
+                            $latitude = new Latitude(90.5);
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Pokrycie kodu</h3>
+                    <br />
+                    <ul>
+                        <li class='fragment'><a href='https://phpunit.de/manual/current/en/code-coverage-analysis.html'>Pokrycie kodu</a> (ang. <i>code coverage</i>) to raport który pokazuje,<br />co zostało przetestowane.</li>
+                        <li class='fragment'>Aby stworzyć raport pokrycia kodu należy mieć skonfigurowany <a href='https://xdebug.org/'>Xdebug</a>, <a href='http://php.net/manual/en/book.phpdbg.php'>PHPDBG</a> lub <a href='https://github.com/krakjoe/pcov'>PCOV</a>.</li>
+                        <li class='fragment'>Należy pamiętać, że liczenie pokrycia kodu jest kosztowne – potrafi kilkukrotnie wydłużyć czas wykonywania się testów.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Pokrycie kodu</h3>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='xml'>
+                        &lt;?xml version='1.0' encoding='UTF-8'?&gt;
+                        &lt;phpunit&gt;
+                            &lt;filter&gt;
+                                &lt;whitelist&gt;
+                                    &lt;directory&gt;./src&lt;/directory&gt;
+                                &lt;/whitelist&gt;
+                            &lt;/filter&gt;
+                            &lt;testsuites&gt;
+                                &lt;testsuite name='coverage'&gt;
+                                    &lt;directory&gt;./tests&lt;/directory&gt;
+                                    &lt;exclude&gt;./tests/Functional&lt;/exclude&gt;
+                                &lt;/testsuite&gt;
+                            &lt;/testsuites&gt;
+                            &lt;logging&gt;
+                                &lt;log type='coverage-html' target='var/test-report' /&gt;
+                                &lt;log type='coverage-text' target='php://stdout' showOnlySummary='true' /&gt;
+                            &lt;/logging&gt;
+                        &lt;/phpunit&gt;
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Pokrycie kodu</h3>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='bash'>
+                        $ ./vendor/bin/phpunit
+                        PHPUnit 8.0.5 by Sebastian Bergmann and contributors.
+                        Runtime: PHP 7.3.3-1+ubuntu16.04.1+deb.sury.org+1
+                        Time: 42.38 seconds, Memory: 206.50 MB
+                        Tests: 13849, Assertions: 398464.
+                    </code></pre>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='bash'>
+                        $ ./vendor/bin/phpunit
+                        Runtime: PHP 7.3.3-1+ubuntu16.04.1+deb.sury.org+1 with Xdebug 2.7.0
+                        Time: 39.61 minutes, Memory: 318.50 MB
+                        Code Coverage: 79.61%
+                    </code></pre>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='bash'>
+                        $ phpdbg -qrr ./vendor/bin/phpunit
+                        Runtime: PHPDBG 7.3.3-1+ubuntu16.04.1+deb.sury.org+1
+                        Time: 4.54 minutes, Memory: 432.50 MB
+                        Code Coverage: 79.16%
+                    </code></pre>
+                    <pre><code style='max-height: 500px;' data-trim data-noescape class='bash'>
+                        $ ./vendor/bin/phpunit
+                        Runtime: PHP 7.3.3-1+ubuntu16.04.1+deb.sury.org+1 with PCOV 1.0.0
+                        Time: 1.46 minutes, Memory: 342.50 MB
+                        Code Coverage: 89.73%
+                    </code></pre>
+                </section>
+                <section>
+                    <h3>Dobre praktyki</h3>
+                    <br />
+                    <ul>
+                        <li class='fragment'>Używajmy najbardziej szczegółowych asercji</li>
+                        <li class='fragment'>zamiast:
+                            <pre><code data-trim data-noescape class='php'>
+                                assertTrue(empty($value));
+                                assertTrue(file_exists($file));
+                            </code></pre>
+                        </li>
+                        <li class='fragment'>czytelniej jest zastosować:
+                            <pre><code data-trim data-noescape class='php'>
+                                assertEmpty($value);
+                                assertFileExists($file);
+                            </code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Dobre praktyki</h3>
+                    <br />
+                    <ul>
+                        <li>Używajmy assertSame zamiast assertEquals.</li>
+                        <li class='fragment'>Bądźmy świadomi bezużytecznych testów (<i>beStrictAboutTestsThatDoNotTestAnything</i>).</li>
+                        <li class='fragment'>Poprawnie nazywajmy klasy testowe (Foo.php → FooTest.php).</li>
+                        <li class='fragment'>Utrzymujmy tą samą strukturę katalogów i plików dla testów oraz testowanego kodu.</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Dobre praktyki</h3>
+                    <ul>
+                        <li>Używajmy adnotacji @covers przy wyliczaniu pokrycia kodu.</li>
+                    </ul>
+                    <div class='fragment'>
+                        <pre><code data-trim data-noescape class='php'>
+                        /**
+                         * @covers \MyProject\MyService
+                         */
+                        final class MyServiceTest extends TestCase
+                        {
+                            /* ... */
+                        }
+                        </code></pre>
+                    </div>
+                    <div class='fragment'>
+                        <pre><code data-trim data-noescape class='php'>
+                        /**
+                         * @coversNothing
+                         */
+                        final class MyFunctionalTest extends TestCase
+                        {
+                            /* ... */
+                        }
+                        </code></pre>
+                    </div>
+                </section>
+                <section>
+                    <h3>Dobre praktyki</h3>
+                    <br />
+                    <ul>
+                        <li>Unikajmy – trudnej do powtórzenia – nieprzewidywalności:
+                            <pre><code data-trim data-noescape class='php'>
+                                public function testSomethingWithCurrentTime()
+                                {
+                                    // poniższa wartość jest przypadkowa
+                                    $timestamp = time();
+                                }
+                            </code></pre>
+                            <pre><code data-trim data-noescape class='php'>
+                                public function testSomethingWithFixedDate() {
+                                    // poniżej będzie zawsze ten sam dzień
+                                    $date = date_create_from_format('j-M-Y', '26-Mar-2019');
+                                };
+                            </code></pre>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Piszmy testowalny kod!</h3>
+                    <br />
+                    <ul>
+                        <li>Unikajmy singletonów.</li>
+                        <li class='fragment'>Unikajmy statycznych metod.</li>
+                        <li class='fragment'>W klasie nie polegajmy ściśle na kodzie innych klas.</li>
+                        <li class='fragment'>Przestrzegajmy <a href='https://en.wikipedia.org/wiki/Single_responsibility_principle'>zasadę pojedynczej odpowiedzialności</a>.</li>
+                        <li class='fragment'>Starajmy się pisać testy przed implementacją funkcjonalności.</li>
+                        <li class='fragment'>TDD (<a href='https://en.wikipedia.org/wiki/Test-driven_development'>Test-driven development</a>).</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Pomocne narzędzia</h3>
+                    <br />
+                    <ul>
+                        <li class='fragment'><a href='https://github.com/phpspec/prophecy'>Prophecy</a> (“If I were to create a new mocking framework today it would probably look a lot like Prophecy”).</li>
+                        <li class='fragment'><a href='https://github.com/paratestphp/paratest'>ParaTest</a> – pozwala zrównoleglić uruchamianie testów.</li>
+                        <li class='fragment'><a href='https://github.com/johnkary/phpunit-speedtrap'>phpunit-speedtrap</a> – pozwala migrować testy do nowszej wersji PHPUnit-a.</li>
+                        <li class='fragment'><a href='https://github.com/sebastianbergmann/php-invoker'>php-invoker</a> – pozwala wymusić limit czasu na test.</li>
+                        <li class='fragment'><a href='https://github.com/php-mock/php-mock'>PHP-Mock</a> – pomocne gdy musimy mockować natywne funkcję PHP.</li>
+                        <li class='fragment'><a href='https://github.com/FriendsOfPHP/PHP-CS-Fixer'>PHP CS Fixer</a> – pozwala migrować testy do nowszej wersji PHPUnit-a.</li>
+                    </ul>
+                </section>
+                <section class='center'>
+                    <h3>Pytania?</h3>
+                </section>
+                <section class='center'>
+                    <h3>Dziękuję za uwagę</h3>
+                    <br />
+                    <p><a href='mailto:werlos@gmail.com'>werlos@gmail.com</a></p>
+                    <br />
+                    <div class='logos-box'>
+                        <a href='https://github.com/kubawerlos'><img class='logo' src='img/github.png' alt='GitHub'></a>
+                        <span class='between-logos'>kubawerlos</span>
+                        <a href='https://gitter.im/kubawerlos'><img class='logo' src='img/gitter.png' alt='Gitter'></a>
+                    </div>
+                    <br />
+                    <p><a href='https://kubawerlos.github.io/slides'>https://kubawerlos.github.io/slides</a></p>
+                </section>
+            </div>
+        </div>
+
+        <script src='lib/js/head.min.js'></script>
+        <script src='js/reveal.js'></script>
+
+        <script>
+            Reveal.initialize({
+                width: '80%',
+                controls: false,
+                center: false,
+                fragments: false,
+                history: true,
+                dependencies: [
+                    {
+                        src: 'plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function () {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    }
+                ]
+            });
+        </script>
+    </body>
+</html>

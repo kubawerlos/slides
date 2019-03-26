@@ -1,0 +1,50 @@
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+    text-transform: none;
+}
+
+.reveal ul {
+    list-style-type: none;
+    margin-left: 0;
+    padding-left: 1em;
+}
+
+.reveal ul > li:before {
+    content: '—';
+    display: inline-block;
+    margin-left: -1em;
+    width: 1em;
+}
+
+.reveal ul.none > li:before {
+    content: '';
+}
+
+.logos-box > * {
+    display: inline-block;
+}
+
+.reveal section img {
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
+.reveal section .logos-box img.logo {
+    height: 120px;
+}
+
+.logos-box .between-logos {
+    height: 114px;
+    padding-left: 45px;
+    padding-right: 30px;
+    vertical-align: bottom;
+}
+
+.reveal pre code {
+    max-height: 100%;
+}
