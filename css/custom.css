@@ -20,6 +20,16 @@
     width: 1em;
 }
 
+.reveal ul.no-dashes {
+    padding-left: 0;
+}
+
+.reveal ul.no-dashes > li:before {
+    content: '';
+    margin-left: 0;
+    width: 0;
+}
+
 .reveal ul.none > li:before {
     content: '';
 }
@@ -47,4 +57,54 @@
 
 .reveal pre code {
     max-height: 100%;
+}
+
+table.list {
+    font-size: 80%;
+    width: 100%;
+}
+
+table.nowrap {
+    white-space: nowrap;
+}
+
+table.no-border td {
+    border-bottom: none;
+}
+
+.drop-cap:first-letter,
+.drop-cap > span:first-letter {
+    font-size: 1.2em;
+}
+
+.hell-red-first-letter > *,
+.steel-blue-first-letter > * {
+    display: inline-block;
+    margin-right: 0.1em;
+}
+
+.hell-red,
+.hell-red-first-letter:first-letter,
+.hell-red-first-letter > *:first-letter {
+    color: #f11514;
+    display: inline-block;
+}
+
+.steel-blue,
+.steel-blue-first-letter:first-letter,
+.steel-blue-first-letter > *:first-letter {
+    color: #4682b4;
+    display: inline-block;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}
+
+.reveal .slide-number {
+    font-size: 42pt;
+}
+
+.hljs-number {
+    text-align: right;
 }

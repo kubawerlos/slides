@@ -1,0 +1,615 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+
+        <title>Dirty Dozen</title>
+
+        <link rel='stylesheet' href='css/reset.css'>
+        <link rel='stylesheet' href='css/reveal.css'>
+        <link rel='stylesheet' href='css/theme/black.css'>
+        <link rel='stylesheet' href='lib/css/zenburn.css'>
+        <link rel='stylesheet' href='css/custom.css'>
+    </head>
+
+    <body>
+        <div class='reveal'>
+            <div class='slides'>
+                <section class='center'>
+                    <br />
+                    <h2 class='steel-blue-first-letter'>
+                        <span>The</span>
+                        <span>Dirty</span>
+                        <span>Dozen</span>
+                    </h2>
+                    <div class='stretch'>
+                        <img src='img/dirty_dozen.jpg' alt='Dirty Dozen'>
+                    </div>
+                    <p class='steel-blue-first-letter'>
+                        <span>Kuba</span>
+                        <span>Werłos</span>
+                    </p>
+                    <br />
+                </section>
+                <section class='center'>
+                    <h4 class='drop-cap steel-blue-first-letter'>
+                        <span>Software</span>
+                        <span>House</span>
+                        <span>Innovative</span>
+                        <span>Technologies</span>
+                    </h4>
+                    <div class='fragment'>
+                        <br />
+                        <h6>by</h6>
+                        <img src='img/e_corp.png' alt='E corp'>
+                    </div>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>KICK ME</h3>
+                    <div class=''>
+                        <img class='fragment' src='img/chuck_norris.png' alt='Chuck Norris'>
+                    </div>
+                    <p class='fragment hell-red-first-letter'>
+                        <span>Keep</span>
+                        <span>It</span>
+                        <span>Complicated</span>
+                        <span>Keep</span>
+                        <span>Me</span>
+                        <span>Employed</span>
+                    </p>
+                    <q class='fragment'>One good programmer can easily create two new jobs a year.</q>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>KICK ME</h3>
+                    <br />
+                    <ul>
+                        <li class='fragment'><q>I am having trouble understanding this code.</q></li>
+                        <li class='fragment'><q>Let's take a look.</q></li>
+                        <li class='fragment'><q>Do you see this function? It calls these 13 other functions and has roughly 1000 lines of commented out code in it.</q></li>
+                        <li class='fragment'><q>Ah yes, that is the Job Security Design Pattern in action!</q></li>
+                    </ul>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Hundred responsibilities principle</h3>
+                    <div class='stretch'>
+                        <img class='fragment' src='img/eye_of_providence.jpg' alt='God'>
+                    </div>
+                    <q class='fragment'>the more the merrier</q>
+                    <p class='fragment'>knows very much or does very much</p>
+                    <table class='no-border'>
+                        <tr class='fragment'>
+                            <td style='text-align: right;'>knows very much</td>
+                            <td>&xrarr;</td>
+                            <td>LOC, properties, methods</td>
+                        </tr>
+                        <tr class='fragment'>
+                            <td style='text-align: right;'>does very much</td>
+                            <td>&xrarr;</td>
+                            <td>cyclomatic complexity</td>
+                        </tr>
+                    </table>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Hundred responsibilities principle</h3>
+                    <table class='list nowrap'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th style='text-align: right;'>LOC</th>
+                                <th style='text-align: right;'>CC</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='8'>1.</div></td>
+                            <td><div class='fragment' data-fragment-index='8'><code style='font-size: 80%;'>giggsey/libphonenumber-for-php/geocoding/data/en/61.php</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='8'>42 571</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='8'>1</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='7'>2.</div></td>
+                            <td><div class='fragment' data-fragment-index='7'><code>Mpdf\Mpdf</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='7'>27 208</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='7'>7 007</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='6'>3.</div></td>
+                            <td><div class='fragment' data-fragment-index='6'><code>TCPDF</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='6'>24 578</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='6'>4 379</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='5'>4.</div></td>
+                            <td><div class='fragment' data-fragment-index='5'><code>voku\helper\UTF8</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='5'>14 013</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='5'>1 426</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='4'>5.</div></td>
+                            <td><div class='fragment' data-fragment-index='4'><code>TYPO3\CMS\Core\DataHandling\DataHandler</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='4'>9 586</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='4'>1 457</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='3'>6.</div></td>
+                            <td><div class='fragment' data-fragment-index='3'><code>PhpOffice\PhpSpreadsheet\Reader\Xls</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='3'>7 947</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='3'>1 011</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='2'>7.</div></td>
+                            <td><div class='fragment' data-fragment-index='2'><code>ScssPhp\ScssPhp\Compiler</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='2'>7 709</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='2'>1 197</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='1'>8.</div></td>
+                            <td><div class='fragment' data-fragment-index='1'><code>WordPress/wp-includes/functions.php</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='1'>7 403</div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='1'>737</div></td>
+                        </tr>
+                    </table>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Untestability</h3>
+                    <p class='fragment'>Profits of not having tests:</p>
+                    <ul>
+                        <li class='fragment'>not doing work no one pays for</li>
+                        <li class='fragment'>no problems with failing build on Jenkins</li>
+                        <li class='fragment'>increase need for manual testing</li>
+                        <li class='fragment'>more thrilling changes to the code</li>
+                        <li class='fragment'>make it harder to change the code without worrying that anything will get broken</li>
+                        <li class='fragment'>deprive us from having documentation for what the code is actually meant to do</li>
+                    </ul>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Untestability</h3>
+                    <br />
+                    <p class='small-caps'>open/closed principle</p>
+                    <br />
+                    <q class='fragment'>A module should be open for modification.</q><br />
+                    <br />
+                    <q class='fragment'>A module should be closed for extension.</q><br />
+                </section>
+                <section>
+                    <h3 class='drop-cap hell-red-first-letter'>Redefine the functionality</h3>
+                    <br />
+                    <p class='fragment'>reinventing the wheel</p>
+                    <p class='fragment'>re-implementing (limited) PHP functions</p>
+                    <p class='fragment'>prefer implementing custom solutions over using open source library</p>
+                    <p class='fragment'>overriding methods</p>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Really big interfaces</h3>
+                    <br />
+                    <p class='fragment'>big &xrarr; complicated</p>
+                    <p class='fragment'>complicated &xrarr; advanced</p>
+                    <p class='fragment'>advanced &xrarr; smart</p>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Really big interfaces</h3>
+                    <table class='list'>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th></th>
+                                <th style='text-align: right;'>Methods</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='8'>1.</div></td>
+                            <td><div class='fragment' data-fragment-index='8'><code>Carbon\CarbonInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='8'>348</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='7'>2.</div></td>
+                            <td><div class='fragment' data-fragment-index='7'><code>Magento\Sales\Api\Data\OrderInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='7'>274</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='6'>3.</div></td>
+                            <td><div class='fragment' data-fragment-index='6'><code>Illuminate\Support\Enumerable</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='6'>112</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='5'>4.</div></td>
+                            <td><div class='fragment' data-fragment-index='5'><code>Drupal\Core\Form\FormStateInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='5'>91</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='4'>5.</div></td>
+                            <td><div class='fragment' data-fragment-index='4'><code>Knp\Menu\ItemInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='4'>58</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='3'>6.</div></td>
+                            <td><div class='fragment' data-fragment-index='3'><code>Doctrine\ORM\Query\TreeWalker</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='3'>50</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='2'>7.</div></td>
+                            <td><div class='fragment' data-fragment-index='2'><code>Zend\Barcode\Object\ObjectInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='2'>47</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment hljs-number' data-fragment-index='1'>8.</div></td>
+                            <td><div class='fragment' data-fragment-index='1'><code>Symfony\Component\Form\FormInterface</code></div></td>
+                            <td><div class='fragment hljs-number' data-fragment-index='1'>35</div></td>
+                        </tr>
+                    </table>
+                </section>
+                <section>
+                    <h3 class='drop-cap hell-red-first-letter'>You should rely on others</h3>
+                    <br />
+                    <div class='fragment'>Extend third party libraries directly
+                        <pre style='width: 60%;'><code data-trim data-noescape class='php'>
+                            class InvoicePdf extends FPDF
+                            {
+                            }
+                        </code></pre>
+                    </div>
+                    <br />
+                    <div class='fragment'>Use third party libraries directly
+                        <pre style='width: 60%;'><code data-trim data-noescape class='php'>
+                            new Symfony\Component\Process\Process(/* ... */);
+                        </code></pre>
+                    </div>
+                </section>
+                <section class='center'>
+                    <table class='no-border' style=''>
+                        <tr><td class='hell-red-first-letter'>Hundred responsibilities principle</td></tr>
+                        <tr><td class='hell-red-first-letter'>Untestability</td></tr>
+                        <tr><td class='hell-red-first-letter'>Redefine the functionality</td></tr>
+                        <tr><td class='hell-red-first-letter'>Really big interfaces</td></tr>
+                        <tr><td class='hell-red-first-letter'>You should rely on others</td></tr>
+                    </table>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Bus factor</h3>
+                    <div class='stretch'>
+                        <img class='fragment' src='img/bus.jpg' alt='Bus'>
+                    </div>
+                    <br />
+                </section>
+                <section data-transition='none'>
+                    <h3>Bus factor</h3>
+                    <div class='stretch'>
+                        <img src='img/bus2.jpg' alt='Bus'>
+                    </div>
+                    <br />
+                </section>
+                <section data-transition='none'>
+                    <h3>Bus factor</h3>
+                    <div class='stretch'>
+                        <img src='img/bus3.jpg' alt='Bus'>
+                    </div>
+                </section>
+                <section data-transition='none'>
+                    <h3>Bus factor</h3>
+                    <div class='stretch'>
+                        <img src='img/bus4.png' alt='Bus'>
+                    </div>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Bus factor</h3>
+                    <br />
+                    <p class='fragment'>The number of team members who, if run over by a bus, would put the project in jeopardy.</p>
+                    <br />
+                    <p class='fragment'>The bigger the number is, more people are inreprecable in the procject.</p>
+                    <br />
+                    <p class='fragment'>Our goal is to descrease the bus factor.</p>
+                </section>
+                <section>
+                    <h3>Early Optimization</h3>
+                    <q class='fragment'>Lack of optimization is the root of all evil.</q>
+                    <p class='fragment'>It is not difficult to know what will be the bottleneck.</p>
+                    <p class='fragment'>Prefer efficiency over simplicity.</p>
+                    <p class='fragment'>Try to cache everything you can.</p>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Inheritance over composition</h3>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>Magento\Backend\Block\System\Store\Edit\Form\Store</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Backend\Block\System\Store\Edit\AbstractForm</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Backend\Block\Widget\Form\Generic</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Backend\Block\Widget\Form</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Backend\Block\Widget</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Backend\Block\Template</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Framework\View\Element\Template</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Framework\View\Element\AbstractBlock</code></pre>
+                    <pre class='fragment'><code data-trim data-noescape class='php'>extends Magento\Framework\DataObject</code></pre>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Inheritance over composition</h3>
+                    <div class='stretch'>
+                        <img src='img/constructor.png' alt='Constructor'>
+                    </div>
+                </section>
+                <section>
+                    <h3>WET</h3>
+                    <p class='fragment hell-red-first-letter'>
+                        <span>We</span>
+                        <span>Enjoy</span>
+                        <span>Typing</span>
+                    </p>
+                    <div class='stretch'>
+                        <img class='fragment' src='img/typing.gif' alt='Typing'>
+                    </div>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Weeks of programming can save you hours of planning</h3>
+                    <div class='stretch'>
+                        <img class='fragment' src='img/meetings.png' alt='Meetings'>
+                    </div>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Weeks of programming can save you hours of planning</h3>
+                    <p class='fragment'>meetings = waste of time</p>
+                    <p class='fragment'>Analysis Paralysis</p>
+                    <p class='fragment'>Death By Planning</p>
+                    <p class='fragment'>E-mail Is Dangerous</p>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Naming</h3>
+                    <div class='fragment'>Hungarian notation:
+                    <pre style='width: 50%;'><code data-trim data-noescape class='php'>
+                            $bCorrect;
+                            $iCount;
+                            $sName;
+                        </code></pre>
+                    </div>
+                    <div class='fragment'>Commonly known names:
+                    <pre style='width: 50%;'><code data-trim data-noescape class='php'>
+                            class DatabaseUtil {}
+                            class UserHelper {}
+                            class PasswordManager {}
+                            class AccountFunctions {}
+                        </code></pre>
+                    </div>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Naming</h3>
+                    <p class='fragment'>Use short names and describe more in comment:</p>
+                    <pre class='fragment' style='width: 50%;'><code data-trim data-noescape class='php'>
+                        // This function returns random item
+                        // for matching name and category
+                        function get2($name, $category) { /* ...*/ }
+                    </code></pre>
+                    <p class='fragment'>Do abbreviate</p>
+                    <pre class='fragment' style='width: 50%;'><code data-trim data-noescape class='php'>
+                        $w; // this is username
+                    </code></pre>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Magic numbers and strings</h3>
+                    <br />
+                    <pre class='fragment'><code data-trim data-noescape class='php'>
+                        class PasswordManager
+                        {
+                            public function setPassword($password) {
+                                if (strlen($password) &lt; 8) {
+                                    throw new Exception('Password must me longer than 8 characters!');
+                                }
+                                // ...
+                            }
+                        }
+                    </code></pre>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Magic numbers and strings</h3>
+                    <div class='stretch'><img src='img/wizard.png' alt='Wizard'></div>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Anemic domain model</h3>
+                    <br />
+                    <p class='fragment'>Contains little or no business logic (validations, calculations, business rules etc.).</p>
+                    <br />
+                    <ul>
+                        <li class='fragment'>You can claim it's a domain model and brag to your developer friends and put it on your resume.</li>
+                        <li class='fragment'>It's easy to generate automagically from database tables.</li>
+                        <li class='fragment'>It maps to Data Transfer Objects surprisingly well.</li>
+                    </ul>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap hell-red-first-letter'>Anemic domain model</h3>
+                    <q>The fundamental horror of this anti-pattern is that it's so contrary to the basic idea of object-oriented design.</q>
+                    <div class='stretch'>
+                        <img class='fragment' src='img/martin_fowler.png' alt='Martin Fowler'>
+                    </div>
+                </section>
+                <section>
+                    <h3 class='drop-cap hell-red-first-letter'>Gypsy wagon</h3>
+                    <p class='fragment' style='opacity: 50%'>(Poltergeist)</p>
+                    <p class='fragment' style='opacity: 50%'>(Big DoIt Controller Class)</p>
+                    <p class='fragment'>When we anticipate the need for a more complex architecture.</p>
+                    <p class='fragment'>Limited responsibilities and roles.</p>
+                    <p class='fragment'>Effective life cycle is short.</p>
+                </section>
+                <section>
+                    <h3 class='drop-cap hell-red-first-letter'>Improbability factor</h3>
+                    <br />
+                    <p class='fragment'>A problem exists in a system.</p>
+                    <p class='fragment'>We are not going to fix the problem,</p>
+                    <p class='fragment'>because chances of the problem ever surfacing are small.</p>
+                </section>
+                <section>
+                    <h3 class='drop-cap hell-red-first-letter'>Cargo cult programming</h3>
+                    <p class='fragment'>SODD</p>
+                    <p class='fragment'>Stack Overflow Driven Development</p>
+                    <div class='stretch'><img class='fragment' src='img/cargo_cult.png' alt='Cargo cult'></div>
+                </section>
+                <section>
+                    <h3>We are ready now!</h3>
+                    <div class='stretch'><img src='img/success_kid.png' alt='Success kid'></div>
+                </section>
+                <section class='center' style='font-size: 0.75em;'>
+                    <table style='display: inline-block;'>
+                        <tr>
+                            <td>KICK ME</td>
+                            <td><div class='fragment' data-fragment-index='1'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='1'>KISS</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Hundred responsibilities principle</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment hell-red-first-letter' data-fragment-index='2'>Single responsibility principle</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Untestability</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment hell-red-first-letter' data-fragment-index='2'>Open–closed principle</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Redefine the functionality</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment hell-red-first-letter' data-fragment-index='2'>Liskov substitution principle</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Really big interfaces</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment hell-red-first-letter' data-fragment-index='2'>Interface segregation principle</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>You should rely on others</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment hell-red-first-letter' data-fragment-index='2'>Dependency inversion principle</div></td>
+                        </tr>
+                        <tr>
+                            <td>Bus factor</td>
+                            <td><div class='fragment' data-fragment-index='3'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='3'>Increasing the bus factor</div></td>
+                        </tr>
+                        <tr>
+                            <td>Early Optimization</td>
+                            <td><div class='fragment' data-fragment-index='4'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='4'>Forget about small efficiencies</div></td>
+                        </tr>
+                        <tr>
+                            <td>Inheritance over composition</td>
+                            <td><div class='fragment' data-fragment-index='5'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='5'>Composition over inheritance</div></td>
+                        </tr>
+                    </table>
+                </section>
+                <section class='center' style='font-size: 0.75em;'>
+                    <table style='display: inline-block;'>
+                        <tr>
+                            <td>WET</td>
+                            <td><div class='fragment' data-fragment-index='1'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='1'>DRY</div></td>
+                        </tr>
+                        <tr>
+                            <td>Weeks of programming can save you hours of planning</td>
+                            <td><div class='fragment' data-fragment-index='2'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='2'>Hours of planning can save you weeks of programming</div></td>
+                        </tr>
+                        <tr>
+                            <td>Naming</td>
+                            <td><div class='fragment' data-fragment-index='3'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='3'>Descriptive, meaningful naming</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Magic numbers and strings</td>
+                            <td><div class='fragment' data-fragment-index='4'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='4'>Named constants</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Anemic domain model</td>
+                            <td><div class='fragment' data-fragment-index='5'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='5'>Rich Domain Model</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Gypsy wagon</td>
+                            <td><div class='fragment' data-fragment-index='6'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='6'>Single responsibility principle</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Improbability factor</td>
+                            <td><div class='fragment' data-fragment-index='7'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='7'>Test-first approach</div></td>
+                        </tr>
+                        <tr>
+                            <td class='hell-red-first-letter'>Cargo cult programming</td>
+                            <td><div class='fragment' data-fragment-index='8'>&xrarr;</div></td>
+                            <td><div class='fragment' data-fragment-index='8'>Cargo cult used responsibly</div></td>
+                        </tr>
+                    </table>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3 class='drop-cap'>Clarification</h3>
+                    <p ><q class='fragment strike'>One good programmer can easily create two new jobs a year.</q></p>
+                    <div class='fragment'>
+                        <q >One bad programmer can easily create two new jobs a year.</q><br />
+                        <cite>David Parnas</cite>
+                    </div>
+                    <br />
+                    <p class='fragment'><q class='fragment strike'>Lack of optimization is the root of all evil.</q></p>
+                    <div class='fragment'>
+                        <q>Premature optimization is the root of all evil.</q><br />
+                        <cite>Donald Knuth</cite>
+                    </div>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3 class='drop-cap'>Clarification</h3>
+                    <br />
+                    <p class='fragment'><q class='fragment strike'>A module should be open for modification.</q></p>
+                    <q class='fragment'>A module will be said to be open if it is still available for extension.</q><br />
+                    <br />
+                    <p class='fragment'><q class='fragment strike'>A module should be closed for extension.</q></p>
+                    <q class='fragment'>A module will be said to be closed if it is available for use by other modules.</q><br />
+                </section>
+                <section>
+                    <h3>Sources</h3>
+                    <ul class='no-dashes' style='font-size: 0.6em;'>
+                        <li><a target='_blank' href='https://en.wikipedia.org/wiki/The_Dirty_Dozen'>en.wikipedia.org/wiki/The_Dirty_Dozen</a></li>
+                        <li><a target='_blank' href='https://mrrobot.fandom.com/wiki/E_Corp'>mrrobot.fandom.com/wiki/E_Corp</a></li>
+                        <li><a target='_blank' href='https://www.linkedin.com/pulse/job-security-design-pattern-jsdp-mike-veigel'>www.linkedin.com/pulse/job-security-design-pattern-jsdp-mike-veigel</a></li>
+                        <li><a target='_blank' href='https://sahandsaba.com/nine-anti-patterns-every-programmer-should-be-aware-of-with-examples.html'>sahandsaba.com/nine-anti-patterns-every-programmer-should-be-aware-of-with-examples.html</a></li>
+                        <li><a target='_blank' href='https://sourcemaking.com/antipatterns/software-project-management-antipatterns'>sourcemaking.com/antipatterns/software-project-management-antipatterns</a></li>
+                        <li><a target='_blank' href='https://martinfowler.com/bliki/AnemicDomainModel.html'>martinfowler.com/bliki/AnemicDomainModel.html</a></li>
+                        <li><a target='_blank' href='https://stackoverflow.com/questions/258534/anemic-domain-model-pros-cons'>stackoverflow.com/questions/258534/anemic-domain-model-pros-cons</a></li>
+                        <li><a target='_blank' href='https://www.promptworks.com/blog/in-defense-of-cargo-cult-programming'>www.promptworks.com/blog/in-defense-of-cargo-cult-programming</a></li>
+                    </ul>
+                </section>
+                <section class='center'>
+                    <h3>Questions?</h3>
+                </section>
+                <section class='center'>
+                    <h3>Thanks</h3>
+                    <br />
+                    <p><a href='mailto:werlos@gmail.com'>werlos@gmail.com</a></p>
+                    <br />
+                    <div class='logos-box'>
+                        <a href='https://github.com/kubawerlos'><img class='logo' src='img/github.png' alt='GitHub'></a>
+                        <span class='between-logos'>kubawerlos</span>
+                        <a href='https://gitter.im/kubawerlos'><img class='logo' src='img/gitter.png' alt='Gitter'></a>
+                    </div>
+                    <br />
+                    <p><a href='https://kubawerlos.github.io/slides'>https://kubawerlos.github.io/slides</a></p>
+                </section>
+            </div>
+        </div>
+
+        <script src='lib/js/head.min.js'></script>
+        <script src='js/reveal.js'></script>
+
+        <script>
+            Reveal.initialize({
+                center: false,
+                controls: false,
+                dependencies: [
+                    {
+                        src: 'plugin/highlight/highlight.js',
+                        async: true,
+                        callback: function () {
+                            hljs.initHighlightingOnLoad();
+                        }
+                    }
+                ],
+                fragments: false,
+                history: true,
+                width: '80%',
+            });
+        </script>
+    </body>
+</html>
