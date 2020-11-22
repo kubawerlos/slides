@@ -6,9 +6,10 @@
 
         <title>Wprowadzenie do PHPUnit</title>
 
-        <link rel='stylesheet' href='css/reveal.css'>
-        <link rel='stylesheet' href='css/theme/black.css'>
-        <link rel='stylesheet' href='lib/css/zenburn.css'>
+        <link rel='stylesheet' href='dist/reset.css'>
+        <link rel='stylesheet' href='dist/reveal.css'>
+        <link rel='stylesheet' href='dist/theme/black.css'>
+        <link rel='stylesheet' href='plugin/highlight/zenburn.css'>
         <link rel='stylesheet' href='css/custom.css'>
     </head>
 
@@ -691,25 +692,18 @@
             </div>
         </div>
 
-        <script src='lib/js/head.min.js'></script>
-        <script src='js/reveal.js'></script>
+        <script src='dist/reveal.js'></script>
+        <script src='plugin/highlight/highlight.js'></script>
 
         <script>
             Reveal.initialize({
-                width: '80%',
-                controls: false,
                 center: false,
+                controls: false,
                 fragments: false,
                 history: true,
-                dependencies: [
-                    {
-                        src: 'plugin/highlight/highlight.js',
-                        async: true,
-                        callback: function () {
-                            hljs.initHighlightingOnLoad();
-                        }
-                    }
-                ]
+                overview: false,
+                plugins: [ RevealHighlight ],
+                width: '80%',
             });
         </script>
     </body>
