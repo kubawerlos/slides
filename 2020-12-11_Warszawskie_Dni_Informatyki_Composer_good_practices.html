@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no'>
+
+        <title>Composer: good practices</title>
+
+        <link rel='stylesheet' href='dist/reset.css'>
+        <link rel='stylesheet' href='dist/reveal.css'>
+        <link rel='stylesheet' href='dist/theme/black.css'>
+        <link rel='stylesheet' href='plugin/highlight/zenburn.css'>
+        <link rel='stylesheet' href='css/custom.css'>
+    </head>
+
+    <body>
+        <div class='reveal'>
+            <div class='slides'>
+                <section class='center'>
+                    <br />
+                    <h2>Composer: good practices</h2>
+                    <div class='stretch'>
+                        <img src='img/composer.png' alt='Composer: good practices' style='filter: invert(90%);'>
+                    </div>
+                    <p>Kuba Werłos</p>
+                    <br />
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Semantic Versioning</h3>
+                    <br />
+                    <div class='fragment'>MAJOR.MINOR.PATCH</div>
+                    <br />
+                    <ul>
+                        <li class='fragment'><strong>MAJOR</strong> — incompatible (breaking) API changes</li>
+                        <li class='fragment'><strong>MINOR</strong> — add functionality in a backwards-compatible manner</li>
+                        <li class='fragment'><strong>PATCH</strong> — backwards compatible bug fixes</li>
+                    </ul>
+                    <br />
+                    <br />
+                    <div class='fragment'><a target='_blank' href='https://semver.org'>semver.org</a></div>
+                    <br />
+                    <div class='fragment'><a target='_blank' href='https://symfony.com/doc/current/contributing/code/bc.html'>Symfony Backward Compatibility Promise</a></div>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Semantic Versioning</h3>
+                    <table class='no-border' style='display: inline-block;'>
+                        <tr>
+                            <td style='margin-right: 20pt;'><div>Dev:</div></td>
+                            <td style='width: 10pt;'></td>
+                            <td><div class='fragment' data-fragment-index='5'>Fixes:</div></td>
+                        </tr>
+                        <tr>
+                            <td><div><code>&xrarr; 0.1.0</code></div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='5'><code>&xrarr; 1.0.1</code></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='2'>Fixes:</div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='6'>Fixes:</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='2'><code>&xrarr; 0.1.1</code></div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='6'><code>&xrarr; 1.0.2</code></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='3'>Breaking changes:</div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='7'>New features:</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='3'><code>&xrarr; 0.2.0</code></div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='7'><code>&xrarr; 1.1.0</code></div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='4'>First stable:</div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='8'>Breaking changes:</div></td>
+                        </tr>
+                        <tr>
+                            <td><div class='fragment' data-fragment-index='4'><code>&xrarr; 1.0.0</code></div></td>
+                            <td></td>
+                            <td><div class='fragment' data-fragment-index='8'><code>&xrarr; 2.0.0</code></div></td>
+                        </tr>
+                    </table>
+                </section>
+                <section>
+                    <h3>Releasing package</h3><br />
+                    <div class='fragment'><a target='_blank' href='https://www.makeareadme.com'>README</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://choosealicense.com'>LICENSE</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://keepachangelog.com'>CHANGELOG</a></div><br />
+                    <div class='fragment'><a target='_blank' href='http://phppackagechecklist.com'>PHP Package Checklist</a></div>
+                </section>
+                <section data-transition='slide-in fade-out'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p class='fragment'>any<br /><br /><br /><code>*</code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>exact match<br /><br /><br /><code>1.0.0<br />dev-master</code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>wildcard range<br /><br /><br /><code>1.0.*<br />2.*</code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>hyphen range<br /><br /><br /><code>1.0 - 2.0<br /><span style='color: #7f9f7f;'>(&gt;=1.0.0 &lt;2.1)</span></code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>unbounded range<br /><br /><br /><code>&gt;=2.0</code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>operators<br /><br /><br /><code><span style='color: #7f9f7f;'>(space)</span><br /><br />||</code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>next significant release<br /><br /><br /><code>~1.2<br /><span style='color: #7f9f7f;'>(&gt;=1.2.0 &lt;2.0.0)</span></code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>next significant release<br /><br /><br /><code>~1.2.3<br /><span style='color: #7f9f7f;'>(&gt;=1.2.3 &lt;1.3.0)</span></code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>caret / semver operator<br /><br /><br /><code>^1.2.3<br /><span style='color: #7f9f7f;'>(&gt;=1.2.3 &lt;2.0.0)</span></code></p>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <table class='no-border' style='display: inline-block;'>
+                        <tr>
+                            <td style='margin-right: 20pt;'><code>~1.2</code></td>
+                            <td><span style='color: #7f9f7f;'>(&gt;=1.2.0 &lt;2.0.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td style='margin-right: 20pt;'><code>~1.2.3</code></td>
+                            <td><span style='color: #7f9f7f;'>(&gt;=1.2.3 &lt;1.3.0)</span></td>
+                        </tr>
+                        <tr><td></td><td></td></tr>
+                        <tr>
+                            <td style='margin-right: 20pt;'><code>^1.2</code></td>
+                            <td><span style='color: #7f9f7f;'>(&gt;=1.2.0 &lt;2.0.0)</span></td>
+                        </tr>
+                        <tr>
+                            <td style='margin-right: 20pt;'><code>^1.2.3</code></td>
+                            <td><span style='color: #7f9f7f;'>(&gt;=1.2.3 &lt;2.0.0)</span></td>
+                        </tr>
+                    </table>
+                </section>
+                <section data-transition='fade'>
+                    <h3>Version Constraints</h3><br /><br />
+                    <p>libraries</p>
+                    <p class='fragment'>PHP</p>
+                    <p class='fragment'>PHP extensions</p>
+                    <br />
+                    <div class='fragment'><a target='_blank' href='https://github.com/maglnet/ComposerRequireChecker'>maglnet/composer-require-checker</a></div><br />
+                </section>
+                <section data-transition='fade-in slide-out'>
+                    <h3>Version Constraints</h3><br />
+                    <p class='fragment'><code>composer require acme/package</code></p><br />
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;require&quot;: {
+                                &quot;acme/package&quot;: &quot;^1.2&quot;
+                            }
+                        }
+                    </code></pre></div>
+                </section>
+                <section>
+                    <h3>Overly strict requirements</h3>
+                    <div><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        // composer.json
+                        {
+                            &quot;require&quot;: {
+                                &quot;cool/alice&quot;: &quot;~1.3&quot;,
+                                &quot;lazy/bob&quot;: &quot;~1.2&quot;
+                            }
+                        }
+                    </code></pre></div>
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        // dependencies
+                        {
+                            &quot;name&quot;: &quot;cool/alice&quot;,
+                            &quot;require&quot;: {
+                                &quot;monolog/monolog&quot;: &quot;~1.6&quot;
+                            }
+                        }
+                        {
+                            &quot;name&quot;: &quot;lazy/bob&quot;,
+                            &quot;require&quot;: {
+                                &quot;monolog/monolog&quot;: &quot;1.3.*&quot;
+                            }
+                        }
+                    </code></pre></div>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3>Stabilities</h3>
+                    <p class='fragment'><code>dev &xrarr; alpha &xrarr; beta &xrarr; RC &xrarr; stable</code></p><br />
+                    <p class='fragment'><strong>Tags</strong><br /><code>2.0.2 &xrarr; stable<br />2.0.0-alpha2 &xrarr; alpha</code></p><br />
+                    <p class='fragment'><strong>Branches</strong><br /><code>2.0 &xrarr; 2.0.x-dev (dev)<br />master &xrarr; dev-master (dev)</code></p>
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3>Stabilities</h3>
+                    <p class='fragment'>allowing various stabilities</p><br />
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;require&quot;: {
+                                &quot;foo/bar&quot;: &quot;^1.0@dev&quot;,
+                                &quot;foo/baz&quot;: &quot;^1.0@alpha&quot;
+                            },
+                            &quot;minimum-stability&quot;: &quot;beta&quot;
+                        }
+                    </code></pre></div>
+                </section>
+                <section>
+                    <h3>Minimum stability</h3><br />
+                    <p>
+                        <span class='fragment' data-fragment-index='1'>Don't set</span>
+                        <code>minimum-stability</code>
+                        <span class='fragment' data-fragment-index='1'>property,</span>
+                    </p>
+                    <p class='fragment' data-fragment-index='2'>it defaults to <code>stable</code>.</p><br />
+                    <p class='fragment' data-fragment-index='3'>Use stability flags,</p>
+                    <p class='fragment' data-fragment-index='4s'>… if you REALLY have to.</p><br />
+                </section>
+                <section>
+                    <h3>Specify the production PHP version</h3><br />
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;config&quot;: {
+                                &quot;platform&quot;: {
+                                    &quot;php&quot;: &quot;7.2&quot;
+                                }
+                            }
+                        }
+                    </code></pre></div>
+                </section>
+                <section data-transition='slide-in none-out'>
+                    <h3><code>composer.lock</code></h3><br />
+                    <ul class='fragment'>
+                        <li><a target='_blank' href='https://github.com/erusev/parsedown'>erusev/parsedown</a></li>
+                        <li><a target='_blank' href='https://github.com/guzzle/guzzle'>guzzlehttp/guzzle</a></li>
+                        <li><a target='_blank' href='https://github.com/laravel/framework'>laravel/framework</a></li>
+                        <li><a target='_blank' href='https://github.com/Seldaek/monolog'>monolog/monolog</a></li>
+                        <li><a target='_blank' href='https://github.com/briannesbitt/Carbon'>nesbot/carbon</a></li>
+                        <li><a target='_blank' href='https://github.com/nikic/PHP-Parser'>nikic/php-parser</a></li>
+                        <li><a target='_blank' href='https://github.com/PHPMailer/PHPMailer'>phpmailer/phpmailer</a></li>
+                        <li><a target='_blank' href='https://github.com/sebastianbergmann/phpunit'>phpunit/phpunit</a></li>
+                        <li><a target='_blank' href='https://github.com/symfony/symfony'>symfony/symfony</a></li>
+                    </ul>
+                </section>
+                <section data-transition='none'>
+                    <h3><code>composer.lock</code></h3><br />
+                    <p class='fragment'>If does not exist composer install and composer update do the same.</p>
+                    <p class='fragment'>If exists composer install works much faster.</p><br />
+                    <p class='fragment'>composer.lock in vendor's dependencies will not have any effect.</p><br />
+                </section>
+                <section data-transition='none-in slide-out'>
+                    <h3><code>composer.lock</code></h3><br /><br />
+                    <p class='fragment'>commit it to git in applications</p><br />
+                    <p class='fragment'>put it into .gitignore in libraries</p>
+                </section>
+                <section>
+                    <h3>Check your minimum dependencies</h3><br /><br />
+                    <p class='fragment'><code>composer update --prefer-lowest</code></p>
+                </section>
+                <section>
+                    <h3>Optimize class map</h3>
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;autoload&quot;: {
+                                &quot;psr-4&quot;: {
+                                    &quot;Acme\\&quot;: &quot;src/&quot;
+                                }
+                            }
+                        }
+                    </code></pre></div>
+                    <ul class='no-dashes'>
+                        <li class='fragment'><code>composer dump-autoload --optimize</code></li>
+                        <li class='fragment'><code>composer dump-autoload --classmap-authoritative</code></li>
+                    </ul>
+                    <div class='fragment'><pre style='width: 50%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;optimize-autoloader&quot;: true,
+                            &quot;classmap-authoritative&quot;: true
+                        }
+                    </code></pre></div><br />
+                </section>
+                <section>
+                    <h3>Commands</h3><br />
+                    <div class='fragment'><pre style='width: 70%;'><code data-trim data-noescape class='json'>
+                        {
+                            &quot;scripts&quot;: {
+                                &quot;post-install-cmd&quot;: [
+                                    &quot;MyVendor\\MyClass::warmCache&quot;
+                                ],
+                                &quot;analyse&quot;: [
+                                    &quot;php-cs-fixer fix --dry-run -v&quot;,
+                                    &quot;phpstan analyse&quot;
+                                ],
+                                &quot;test&quot;: [
+                                    &quot;phpdbg -qrr vendor/bin/phpunit&quot;
+                                ],
+                                &quot;verify&quot;: [
+                                    &quot;@analyse&quot;,
+                                    &quot;@test&quot;
+                                ]
+                            }
+                        }
+                    </code></pre></div><br />
+                </section>
+                <section>
+                    <h3>Plugins</h3><br />
+                    <div class='fragment'><a target='_blank' href='https://github.com/BrainMaestro/composer-git-hooks'>brainmaestro/composer-git-hooks</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://github.com/ergebnis/composer-normalize'>ergebnis/composer-normalize</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://github.com/jakoch/awesome-composer#plugins'>Awesome Composer # Plugins</a></div><br />
+                </section>
+                <section>
+                    <h3>Features</h3>
+                    <p class='fragment'><code>depends</code> / <code>prohibits</code> (<code>why</code> / <code>why-not</code>)</p>
+                    <div class='fragment'><pre style='width: 80%;'><code data-trim data-noescape class='bash'>
+                        $ composer prohibits php:8
+                        doctrine/cache        v1.6.0 requires php (~5.5|~7.0)
+                        doctrine/common       v2.6.1 requires php (~5.5|~7.0)
+                        doctrine/instantiator 1.0.5  requires php (&gt;=5.3,&lt;8.0-DEV)
+                    </code></pre></div><br />
+                    <p class='fragment'><code>outdated</code></p>
+                    <div class='fragment'><pre style='width: 80%;'><code data-trim data-noescape class='bash'>
+                        $ composer outdated
+                        doctrine/common 2.13.3 3.0.2  PHP Doctrine Common project is a library&hellip;
+                        doctrine/dbal   2.12.1 3.0.0  Powerful PHP database abstraction layer&hellip;
+                    </code></pre></div>
+                </section>
+                <section>
+                    <h3>Experiencing a strange behavior?</h3><br />
+                    <ul>
+                        <li class='fragment'><code>composer self-update</code></li>
+                        <li class='fragment'><code>composer diagnose</code></li>
+                        <li class='fragment'><code>composer update -v</code></li>
+                        <li class='fragment'><code>rm composer.lock<br />rm -rf vendor<br />composer update</code></li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Automating</h3><br />
+                    <p class='fragment'><code>composer validate --strict --with-dependencies</code></p><br />
+                    <p class='fragment'><code>composer normalize --dry-run</code></p><br />
+                    <p class='fragment'><code>composer require sensiolabs/security-checker</code></p>
+                    <p class='fragment'><code>vendor/bin/security-checker security:check</code></p>
+                </section>
+                <section>
+                    <h3><a href='https://blog.packagist.com/composer-2-0-is-now-available' target='_blank'>Composer 2.0</a></h3><br />
+                    <p class='fragment'>Performance improvements</p>
+                    <p class='fragment'>Architectural changes and determinism</p>
+                    <p class='fragment'>Runtime features</p>
+                    <p class='fragment'>Error reporting improvements</p>
+                    <p class='fragment'>Backwards compatibility breaks?</p>
+                </section>
+                <section>
+                    <h3>Useful links</h3><br />
+                    <div class='fragment'><a target='_blank' href='https://semver.mwl.be'>https://semver.mwl.be</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://packanalyst.com'>https://packanalyst.com</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://repo-stats.github.io'>https://repo-stats.github.io</a></div><br />
+                    <div class='fragment'><a target='_blank' href='https://github.com/ziadoz/awesome-php'>https://github.com/ziadoz/awesome-php</a></div><br />
+                </section>
+                <section class='center'>
+                    <h3>Questions?</h3>
+                </section>
+                <section class='center'>
+                    <h3>Thank you</h3>
+                    <br />
+                    <p><a href='mailto:werlos@gmail.com'>werlos@gmail.com</a></p>
+                    <br />
+                    <div class='logos-box'>
+                        <a href='https://github.com/kubawerlos'><img class='logo' src='img/github.png' alt='GitHub'></a>
+                        <span class='between-logos'>kubawerlos</span>
+                        <a href='https://gitter.im/kubawerlos'><img class='logo' src='img/gitter.png' alt='Gitter'></a>
+                    </div>
+                    <br />
+                    <p><a href='https://kubawerlos.github.io/slides'>https://kubawerlos.github.io/slides</a></p>
+                </section>
+            </div>
+        </div>
+
+        <script src='dist/reveal.js'></script>
+        <script src='plugin/highlight/highlight.js'></script>
+
+        <script>
+            Reveal.initialize({
+                center: false,
+                controls: false,
+                fragments: false,
+                history: true,
+                overview: false,
+                plugins: [ RevealHighlight ],
+                width: '80%',
+            });
+        </script>
+    </body>
+</html>
